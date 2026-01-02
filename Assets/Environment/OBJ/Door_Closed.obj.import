@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7nrba6nr83bq"
+path="res://.godot/imported/Door_Closed.obj-317b92acb1dd57c03ad6132d70d5f40d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Door_Closed.obj-317b92acb1dd57c03ad6132d70d5f40d.mesh"]
+
+source_file="res://Assets/Environment/OBJ/Door_Closed.obj"
+dest_files=["res://.godot/imported/Door_Closed.obj-317b92acb1dd57c03ad6132d70d5f40d.mesh", "res://.godot/imported/Door_Closed.obj-317b92acb1dd57c03ad6132d70d5f40d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

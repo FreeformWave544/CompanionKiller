@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmcdm13jdgohd"
+path="res://.godot/imported/Button_Pressed.obj-5beee5a1abed9b23008921c63f3b23ae.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Button_Pressed.obj-5beee5a1abed9b23008921c63f3b23ae.mesh"]
+
+source_file="res://Assets/Environment/OBJ/Button_Pressed.obj"
+dest_files=["res://.godot/imported/Button_Pressed.obj-5beee5a1abed9b23008921c63f3b23ae.mesh", "res://.godot/imported/Button_Pressed.obj-5beee5a1abed9b23008921c63f3b23ae.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

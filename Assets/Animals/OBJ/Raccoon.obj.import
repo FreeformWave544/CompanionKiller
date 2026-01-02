@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b8s20iej31pr1"
+path="res://.godot/imported/Raccoon.obj-42eece2f3c30e34d6528de5c4393e18f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Raccoon.obj-42eece2f3c30e34d6528de5c4393e18f.mesh"]
+
+source_file="res://Assets/Animals/OBJ/Raccoon.obj"
+dest_files=["res://.godot/imported/Raccoon.obj-42eece2f3c30e34d6528de5c4393e18f.mesh", "res://.godot/imported/Raccoon.obj-42eece2f3c30e34d6528de5c4393e18f.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
