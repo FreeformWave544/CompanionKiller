@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://drhy01uk3i80w"
+path="res://.godot/imported/datte_Inside.obj-d4a170990cbcc0547c7f18b5e0db9d6c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/datte_Inside.obj-d4a170990cbcc0547c7f18b5e0db9d6c.mesh"]
+
+source_file="res://Assets/source/datte_Inside.obj"
+dest_files=["res://.godot/imported/datte_Inside.obj-d4a170990cbcc0547c7f18b5e0db9d6c.mesh", "res://.godot/imported/datte_Inside.obj-d4a170990cbcc0547c7f18b5e0db9d6c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

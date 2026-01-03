@@ -2,8 +2,8 @@ extends CharacterBody3D
 class_name Player
 
 @export var SPEED := 5.0
+@export var push_force := 12.0
 @export var JUMP_VELOCITY := 4.5
-
 @export var mouse_sensitivity := 0.003
 @export var mouse_smoothing_speed := 12.0
 
@@ -29,8 +29,17 @@ var is_crouching := false
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$PanelContainer/Input.call_deferred("grab_focus")
 
 func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Interact"):
+		if $Camera3D/RayCast3D.is_colliding():
+			if $Camera3D/RayCast3D.get_collider() and "Watch" in $Camera3D/RayCast3D.get_collider().name:
+				$AnimationPlayer.play("Watch")
+				for demon in get_parent().find_child("CompanionSpawn").get_children(): demon.call_deferred("queue_free")
+				await $AnimationPlayer.animation_finished
+				await get_tree().create_timer(0.2).timeout
+				get_parent().next.emit()
 	if Input.is_action_just_pressed("ui_cancel"): Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_CAPTURED
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		target_mouse = Vector2(-event.relative.x, event.relative.y) * mouse_sensitivity
@@ -71,4 +80,18 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_and_slide()
+	push_rigid_bodies()
 	target_mouse = Vector2.ZERO
+
+func push_rigid_bodies() -> void:
+	for i in range(get_slide_collision_count()):
+		var collision := get_slide_collision(i)
+		var body := collision.get_collider()
+		if body is RigidBody3D:
+			if abs(collision.get_normal().y) > 0.5: continue
+			var push_dir := -collision.get_normal()
+			body.apply_central_force(push_dir * push_force)
+
+func _on_input_text_submitted(new_text: String) -> void:
+	get_parent().userInput.emit(new_text)
+	$PanelContainer/Input.clear()

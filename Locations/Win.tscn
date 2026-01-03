@@ -1,0 +1,186 @@
+[gd_scene load_steps=13 format=3 uid="uid://by5i4uqf0qyn6"]
+
+[ext_resource type="Script" uid="uid://iui7u71nrgph" path="res://Locations/win.gd" id="1_3drf5"]
+
+[sub_resource type="Gradient" id="Gradient_00bau"]
+offsets = PackedFloat32Array(0, 0.33333334, 0.49333334, 0.75333333, 1)
+colors = PackedColorArray(0.48235294, 0, 0, 1, 0.60784316, 0.7490196, 0.2, 1, 0.25490198, 0.47843137, 0.5803922, 1, 1, 0.40784314, 0.6745098, 1, 1, 0.8235294, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3drf5"]
+noise_type = 0
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_emy6f"]
+width = 1152
+height = 648
+noise = SubResource("FastNoiseLite_3drf5")
+color_ramp = SubResource("Gradient_00bau")
+bump_strength = 32.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_00bau"]
+font_size = 64
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3drf5"]
+font_size = 28
+font_color = Color(0.5764706, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_emy6f"]
+font_size = 32
+font_color = Color(0.5764706, 0.8352941, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ulo6"]
+font_size = 32
+font_color = Color(0.7336983, 0.1842851, 0.7793118, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8lv7c"]
+font_color = Color(0.19607843, 0.19607843, 0.19607843, 0.63529414)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00bau"]
+bg_color = Color(0.5007412, 3.730133e-07, 1.92523e-07, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.39215687, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+shadow_color = Color(0.6901961, 0, 0, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3drf5"]
+bg_color = Color(0.24705882, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.39215687, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+shadow_color = Color(0.4627451, 0, 0, 1)
+shadow_size = 8
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emy6f"]
+bg_color = Color(0, 0.6784314, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.39215687, 0.92941177, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+shadow_color = Color(0.30588236, 0.7058824, 0, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(1, 1)
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3drf5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("NoiseTexture2D_emy6f")
+centered = false
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -94.5
+offset_right = 94.5
+offset_bottom = 94.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Container"]
+layout_mode = 2
+text = "You've Won. How does it feel?"
+label_settings = SubResource("LabelSettings_00bau")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Container"]
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 2
+text = "Every day, without questions, you kill all those 'companions'.
+You've killed 299 innocent creatures that all wanted to be your loyal friends
+in just THIS playthrough!"
+label_settings = SubResource("LabelSettings_3drf5")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="Container"]
+layout_mode = 2
+text = "Except for that cat.
+You were heartless until that cat showed up.
+Why do you like the cat so much?"
+label_settings = SubResource("LabelSettings_emy6f")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Container"]
+layout_mode = 2
+text = "Do you feel proud of your actions?
+Do you feel satisfaction?
+Do you feel... guilt?"
+label_settings = SubResource("LabelSettings_8ulo6")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Container"]
+layout_mode = 2
+text = "ADMIT! ADMIT TO YOUR WRONG DOINGS!
+ADMIT TO YOUR MONSTEROUS WAYS!
+ADMIT TO BEING THE VILAIN OF THIS ADVENT COUNTDOWN!
+ADMIT!"
+label_settings = SubResource("LabelSettings_3drf5")
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 982.0
+offset_top = 398.0
+offset_right = 1143.0
+offset_bottom = 499.0
+text = "You're not leaving this 'win' screen until you make up for your sins."
+label_settings = SubResource("LabelSettings_8lv7c")
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 327.0
+offset_right = 49.0
+offset_bottom = 335.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.98268455, 0.0006409572, 0.00035135448, 1)
+theme_override_colors/font_pressed_color = Color(0.4117647, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.9490196, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_00bau")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3drf5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_emy6f")
+text = "ADMIT"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=3 uid="uid://b60vu5modpgp2"]
+
+[ext_resource type="Script" uid="uid://ccul5cosjv0sg" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b5l0uhff7xsvn" path="res://Entities/Player/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cfikwyqyri3mx" path="res://Entities/Companions/demon.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://mim04ln6mcco" path="res://Entities/Companions/cat.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c7a2tcl68jifa" path="res://Entities/Companions/hedgehog.tscn" id="3_1bvp3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dm0k"]
+size = Vector3(200, 1, 200)
+
+[sub_resource type="Gradient" id="Gradient_ig7tw"]
+colors = PackedColorArray(0, 0.29411766, 0, 1, 1.347661e-06, 0.49926442, 2.8878452e-07, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0xm2m"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h2yge"]
+width = 2160
+height = 2160
+noise = SubResource("FastNoiseLite_0xm2m")
+color_ramp = SubResource("Gradient_ig7tw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_texture = SubResource("NoiseTexture2D_h2yge")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ig7tw"]
+data = PackedVector3Array(-100, 0.5, -100, -100, -0.5, -100, 100, -0.5, -100, -100, 0.5, 100, -100, -0.5, 100, -100, -0.5, -100, -100, -0.5, 100, 100, -0.5, 100, -100, -0.5, -100, -100, 0.5, -100, -100, 0.5, 100, -100, -0.5, -100, -100, 0.5, 100, -100, 0.5, -100, 100, 0.5, -100, -100, 0.5, 100, 100, 0.5, 100, -100, -0.5, 100, 100, -0.5, 100, 100, -0.5, -100, -100, -0.5, -100, 100, 0.5, -100, 100, -0.5, -100, 100, -0.5, 100, 100, 0.5, 100, 100, -0.5, 100, -100, -0.5, 100, 100, 0.5, -100, -100, 0.5, -100, 100, -0.5, -100, 100, 0.5, 100, -100, 0.5, 100, 100, 0.5, -100, 100, 0.5, 100, 100, 0.5, -100, 100, -0.5, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
+size = Vector3(250, 200, 250)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_0xm2m")
+companions = Array[PackedScene]([ExtResource("2_1bvp3"), ExtResource("3_1bvp3"), ExtResource("2_h2yge")])
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_7dm0k")
+material = SubResource("StandardMaterial3D_1bvp3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("ConcavePolygonShape3D_ig7tw")
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="CompanionSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 24)
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+shape = SubResource("BoxShape3D_1bvp3")
+debug_shape_custom_color = Color(0.29411766, 0, 0, 1)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 202, 0)
+light_color = Color(0.48570347, 0.48570353, 0.48570347, 1)
+light_energy = 16.0
+light_negative = true
+spot_range = 4096.0

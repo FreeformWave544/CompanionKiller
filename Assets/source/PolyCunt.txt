@@ -1,0 +1,11 @@
+Datte_Fruit
+
+
+Polys : 1549
+Verts : 1073
+
+
+Inside 
+
+Polys : 1228
+Verts : 752
