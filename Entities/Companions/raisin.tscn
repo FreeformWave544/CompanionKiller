@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://p6lf657uv7xt"]
+[gd_scene load_steps=7 format=4 uid="uid://p6lf657uv7xt"]
 
 [ext_resource type="Texture2D" uid="uid://b052gw76uur42" path="res://Assets/textures/datte_st_UVs_01_-_Default_Roughness.png" id="1_f50hb"]
 
@@ -10,21 +10,8 @@ bounce = 0.5
 radius = 0.14111328
 height = 0.57119143
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wyipx"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-grow = true
-grow_amount = 0.1
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhp55"]
 resource_name = "01 - Default"
-next_pass = SubResource("StandardMaterial3D_wyipx")
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.18126282, 0.00040824502, 0.40502623, 1)
 albedo_texture = ExtResource("1_f50hb")

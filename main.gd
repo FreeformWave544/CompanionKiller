@@ -30,7 +30,6 @@ func broadcast(cast, duration = 2.0):
 var next_emitted := false
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("skip"):  next.emit()
 	if next_emitted: return
 	for i in range($ShapeCast3D.get_collision_count()):
 		if !$ShapeCast3D.get_collider(i) or !is_inside_tree() or $ShapeCast3D.get_collider(i).is_in_group("Companion"): return
